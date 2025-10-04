@@ -1,0 +1,9 @@
+<?php
+header('Content-Type: application/json');
+
+$valid_user = "mrroger";
+$valid_pass = md5("langitsenja");
+
+echo json_encode([
+    "username" =>
+$valid_user, "password" => $valid_pass ]);
