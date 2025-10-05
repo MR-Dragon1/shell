@@ -519,7 +519,7 @@ if (empty($_SESSION['logged_in'])):
 <body>
     <div class="card">
         <div class="brand">MR SEO - Panel</div>
-        <div class="hint">Silakan login untuk mengakses file manager.</div>
+        <div class="hint">Silahkan login untuk mengakses file manager.</div>
         <?php if ($error) echo "<div class='error'>".htmlspecialchars($error)."</div>"; ?>
         <form method="post" autocomplete="off">
             <input class="input" type="text" name="user" placeholder="Username" required>
