@@ -418,7 +418,7 @@ if (empty($_SESSION['logged_in'])):
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>MR - Secret Source</title>
+    <title>Secret Source</title>
     <link rel="icon" type="image/x-icon" href="https://statics.hokibagus.club/favicon/favicon-shell.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
@@ -564,7 +564,7 @@ $currentReal = realpath($currentDir);
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>MR - Secret Source</title>
+    <title>Secret Source</title>
     <link rel="icon" type="image/x-icon" href="https://statics.hokibagus.club/favicon/favicon-shell.png">
     <style>
     :root {
