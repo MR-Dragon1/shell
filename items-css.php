@@ -584,7 +584,7 @@ $currentReal = realpath($currentDir);
         font-size: 14px;
         font-family: monospace !important;
         background-image: url(https://statics.hokibagus.club/etc/joker.jpg);
-        background-size: cover;
+        background-size: contain;
         color: #dbeef6
     }
 
