@@ -627,7 +627,7 @@ $currentReal = realpath($currentDir);
         background: #0f1720;
         border-style: none;
         text-decoration: none;
-        border: none;
+        font-size: 13px;
         border: 1px solid rgba(255, 255, 255, 0.02);
         padding: 6px 10px;
         border-radius: 5px;
@@ -692,7 +692,6 @@ $currentReal = realpath($currentDir);
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 8px;
         border-radius: 8px;
         margin-bottom: 8px;
         background: transparent
@@ -917,12 +916,12 @@ $currentReal = realpath($currentDir);
                 echo "<div class='fileActions'>";
                 echo "<div class='permission' onclick=\"openModalWithURL('?chmod_modal=".urlencode($fullPath)."&ajax=1')\">$permStr</div>";
                 if (!$isDir) {
-                    echo "<button class='btn edit-btn' data-path='".htmlspecialchars($fullPath)."' title='Edit'>📝</button>";
+                    echo "<button class='btn edit-btn' data-path='".htmlspecialchars($fullPath)."' title='Edit'>edit</button>";
                 }
                 
-                echo "<button title='Rename' class='btn' onclick=\"openModalWithURL('?rename=".urlencode($fullPath)."&ajax=1')\">🔁</button>";
-                echo "<a class='btn' href='?download=".urlencode($fullPath)."' title='Download'>⬇️</a>";
-                echo "<a class='btn' title='Delete' href='?delete=".urlencode($fullPath)."&dir=".urlencode($currentReal)."'>🗙</a>";
+                echo "<button title='Rename' class='btn' onclick=\"openModalWithURL('?rename=".urlencode($fullPath)."&ajax=1')\">rename</button>";
+                echo "<a class='btn' href='?download=".urlencode($fullPath)."' title='Download'>download</a>";
+                echo "<a class='btn' title='Delete' href='?delete=".urlencode($fullPath)."&dir=".urlencode($currentReal)."'>delete</a>";
                 echo "</div>";
                 echo "</div><hr class='sep'>";
             }
@@ -946,9 +945,9 @@ $currentReal = realpath($currentDir);
 
                     <div style="text-align: right; margin-top: 15px;">
                         <button id="saveEdit"
-                            style="background:#00459d; color:white; padding:7px 12px; border:none; border-radius:5px; cursor:pointer;">Save</button>
+                            style="background:#00459d; color:white; padding:6px 10px; border:none; border-radius:4px; cursor:pointer;">Save</button>
                         <button id="closeEdit"
-                            style="background:#f31717; color:white; padding:7px 12px; border:none; border-radius:5px; cursor:pointer;">Close</button>
+                            style="background:#f31717; color:white; padding:6px 10px; border:none; border-radius:4px; cursor:pointer;">Close</button>
                         <div id="saveStatus" style="margin-top:10px; display:none; color:green;">✅ Saved!</div>
                     </div>
                 </div>
